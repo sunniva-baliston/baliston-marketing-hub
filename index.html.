@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baliston Marketing & Content Hub</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --sidebar: #f7f7f5;
+      --border: #e6e6e3;
+      --text: #2f3437;
+      --muted: #6b7280;
+      --accent: #0969da;
+      --card-bg: #fbfbfa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      display: flex;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    aside {
+      width: 260px;
+      background: var(--sidebar);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    aside h2 { font-size: 14px; font-weight: 700; margin-bottom: 16px; padding-left: 8px; }
+    aside nav a {
+      display: block;
+      padding: 6px 10px;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    aside nav a:hover { background: #ebebea; }
+    .nav-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 18px 0 6px 10px;
+      letter-spacing: 0.04em;
+    }
+    main {
+      margin-left: 260px;
+      max-width: 920px;
+      padding: 48px 56px;
+      width: 100%;
+    }
+    .icon { font-size: 40px; margin-bottom: 12px; }
+    h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+    .callout {
+      background: #f1f5f9;
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    h2.section { font-size: 20px; margin: 32px 0 14px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .card h3 { font-size: 15px; margin-bottom: 6px; }
+    .card p { font-size: 13px; color: var(--muted); }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+    .tofu { background: #ffedd5; color: #c2410c; }
+    .mofu { background: #dbeafe; color: #1d4ed8; }
+    .bofu { background: #dcfce7; color: #15803d; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 12px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; }
+    th { background: var(--sidebar); font-weight: 600; }
+    @media (max-width: 768px) {
+      aside { display: none; }
+      main { margin-left: 0; padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h2>📊 Baliston Content Hub</h2>
+    <div class="nav-label">Workspace</div>
+    <nav>
+      <a href="#overview">Overview & Governance</a>
+      <a href="#funnel">Content Funnel</a>
+      <a href="#pipeline">Active Q4/Q1 Concepts</a>
+      <a href="#workflow">Tools & Sign-Offs</a>
+    </nav>
+    <div class="nav-label">GitHub Repo Links</div>
+    <nav>
+      <a href="https://github.com/sunniva-baliston/baliston-marketing-hub/issues" target="_blank">📋 Content Planner (Issues)</a>
+      <a href="https://github.com/sunniva-baliston/baliston-marketing-hub/tree/main/01-strategy-and-funnel" target="_blank">📁 01 Strategy & Funnel</a>
+      <a href="https://github.com/sunniva-baliston/baliston-marketing-hub/tree/main/02-campaigns-and-briefs" target="_blank">📁 02 Campaigns & Briefs</a>
+      <a href="https://github.com/sunniva-baliston/baliston-marketing-hub/tree/main/03-ai-and-prompt-library" target="_blank">📁 03 AI Prompt Library</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="icon">👟</div>
+    <h1 id="overview">Baliston Marketing & Content Hub</h1>
+    <p class="subtitle">Centralized content funnel, campaign pipeline, and creative workflow across Health, Sport, Care & Footwear.</p>
+
+    <div class="callout">
+      <strong>Governance Reminder:</strong> Synced SharePoint Knowledge Libraries remain the single source of truth for brand guidelines and clinical claims. Verify all stats against <code>pending-sign-off.md</code> before scheduling.
+    </div>
+
+    <h2 class="section" id="funnel">Multi-Brand Content Funnel</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="tag tofu">TOFU • Awareness</span>
+        <h3>Brand & Reactive / Seasonal</h3>
+        <p>Stop the scroll with timely movement hooks: winter gait shift, Feb 15 New Year runner injury timeline, and viral shoe trends.</p>
+      </div>
+      <div class="card">
+        <span class="tag mofu">MOFU • Education</span>
+        <h3>Clinical Proof & Biomechanics</h3>
+        <p>Show why inside-the-shoe overground data beats eyeballing: fatigue drift (Min 1 vs. Min 25) and shoe-to-shoe A/B testing.</p>
+      </div>
+      <div class="card">
+        <span class="tag bofu">BOFU • Conversion</span>
+        <h3>Product & Clinic ROI</h3>
+        <p>Highlight Balia AI post-scan workflows, patient rehab retention proof, and Q1 clinic screening readiness.</p>
+      </div>
+    </div>
+
+    <h2 class="section" id="pipeline">Active Q4 / Q1 Content Concepts</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Format</th>
+          <th>Category</th>
+          <th>Vertical</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Carbon Plates, Zero-Drop, or Max Cushion</td>
+          <td>IG Carousel</td>
+          <td>Educational / Reactive</td>
+          <td>Sport / Health</td>
+          <td>Drafting</td>
+        </tr>
+        <tr>
+          <td>Why Feb 15 Is Peak Injury Week for New Runners</td>
+          <td>IG Reel</td>
+          <td>Seasonal / Awareness</td>
+          <td>Sport</td>
+          <td>Idea Backlog</td>
+        </tr>
+        <tr>
+          <td>The Solo Clinician's Second Brain (Balia AI)</td>
+          <td>IG Carousel</td>
+          <td>Product Awareness</td>
+          <td>Health</td>
+          <td>Idea Backlog</td>
+        </tr>
+        <tr>
+          <td>Year-End Clinic Investment & Patient Retention</td>
+          <td>LinkedIn / Carousel</td>
+          <td>Conversion / ROI</td>
+          <td>Health / Care</td>
+          <td>Idea Backlog</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section" id="workflow">Sign-Off & Production Workflow</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Gate / Tool</th>
+          <th>Owner</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Content Briefs & Kanban</strong></td>
+          <td>Sunniva (GitHub Issues)</td>
+          <td>Draft copy, hooks, slide structure, and track funnel balance</td>
+        </tr>
+        <tr>
+          <td><strong>Visual Design</strong></td>
+          <td>Canva Pro / Jamie</td>
+          <td>Build carousels and Reels visuals using approved brand templates</td>
+        </tr>
+        <tr>
+          <td><strong>Brand & Visual Sign-Off</strong></td>
+          <td>Neil</td>
+          <td>Final check on positioning, tone, and brand consistency</td>
+        </tr>
+        <tr>
+          <td><strong>Clinical Claim Sign-Off</strong></td>
+          <td>Franck</td>
+          <td>Approve any biomechanical metrics, stats, or medical claims</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
