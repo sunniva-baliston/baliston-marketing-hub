@@ -3,228 +3,902 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baliston Marketing & Content Hub</title>
+  <title>Baliston Health — Content & Marketing Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --sidebar: #f7f7f5;
-      --border: #e6e6e3;
-      --text: #2f3437;
+      --bg: #f8f9f8;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --border-strong: #d1d5db;
+      --text: #18181b;
       --muted: #6b7280;
-      --accent: #0969da;
-      --card-bg: #fbfbfa;
+      --teal: #1b4d45;
+      --teal-hover: #143b34;
+      --red: #b91c1c;
+      --amber: #b45309;
+      --blue: #1d4ed8;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
-      display: flex;
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-    aside {
-      width: 260px;
-      background: var(--sidebar);
-      border-right: 1px solid var(--border);
-      padding: 24px 16px;
-      position: fixed;
-      height: 100vh;
-      overflow-y: auto;
-    }
-    aside h2 { font-size: 14px; font-weight: 700; margin-bottom: 16px; padding-left: 8px; }
-    aside nav a {
-      display: block;
-      padding: 6px 10px;
       color: var(--text);
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 14px;
-      margin-bottom: 2px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
     }
-    aside nav a:hover { background: #ebebea; }
-    .nav-label {
+
+    /* Top Header Bar */
+    header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 36px 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .brand-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .mono-label {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
-      margin: 18px 0 6px 10px;
-      letter-spacing: 0.04em;
     }
-    main {
-      margin-left: 260px;
-      max-width: 920px;
-      padding: 48px 56px;
-      width: 100%;
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
-    .icon { font-size: 40px; margin-bottom: 12px; }
-    h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-    .subtitle { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
-    .callout {
-      background: #f1f5f9;
-      border-left: 4px solid var(--accent);
-      padding: 14px 18px;
+
+    .pill-btn, select.week-select {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 6px;
-      font-size: 14px;
-      margin-bottom: 32px;
+      padding: 6px 11px;
+      font-size: 12.5px;
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
     }
-    h2.section { font-size: 20px; margin: 32px 0 14px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 14px;
+
+    .pill-btn:hover { border-color: var(--border-strong); background: #fcfcfc; }
+
+    .save-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding: 0 6px;
+    }
+
+    /* Main Horizontal Tabs */
+    .main-tabs {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+    }
+
+    .main-tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 8px 2px 11px;
+      font-size: 13.5px;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+
+    .main-tab:hover { color: var(--text); }
+
+    .main-tab.active {
+      color: var(--text);
+      font-weight: 500;
+      border-bottom-color: var(--teal);
+    }
+
+    .tab-count {
+      font-size: 11.5px;
+      color: #9ca3af;
+      font-weight: 400;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 36px 36px 80px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
       margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .card {
-      background: var(--card-bg);
+
+    .section-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    h1.page-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+    }
+
+    .page-desc {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .primary-btn {
+      background: var(--teal);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+
+    .primary-btn:hover { background: var(--teal-hover); }
+
+    /* Sub-tabs with colored dots */
+    .sub-tabs {
+      display: flex;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+      overflow-x: auto;
+    }
+
+    .sub-tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 8px 2px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+
+    .sub-tab.active {
+      color: var(--text);
+      font-weight: 500;
+      border-bottom-color: var(--teal);
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .count-caption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    /* Editorial Table */
+    .table-card {
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--border);
+      background: #fcfcfc;
+    }
+
+    td {
+      padding: 15px 18px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafafa; }
+
+    .cell-title { font-weight: 500; color: var(--text); }
+
+    .status-pill {
+      display: inline-block;
+      background: #f3f4f6;
+      color: #4b5563;
+      font-size: 11.5px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    .status-pill.ready { background: #ecfdf5; color: #065f46; }
+    .status-pill.review { background: #fef3c7; color: #92400e; }
+
+    .priority {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .priority.high { color: var(--red); }
+    .priority.med { color: var(--amber); }
+    .priority.low { color: var(--muted); }
+
+    /* Funnel Grid Cards */
+    .funnel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .panel-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .panel-card h3 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin: 6px 0 8px;
+    }
+
+    .panel-card p { font-size: 13.5px; color: var(--muted); margin-bottom: 14px; }
+
+    .panel-list { list-style: none; font-size: 13px; }
+    .panel-list li {
+      padding: 7px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
       padding: 16px;
     }
-    .card h3 { font-size: 15px; margin-bottom: 6px; }
-    .card p { font-size: 13px; color: var(--muted); }
-    .tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 12px;
-      margin-bottom: 8px;
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 480px;
+      padding: 24px;
     }
-    .tofu { background: #ffedd5; color: #c2410c; }
-    .mofu { background: #dbeafe; color: #1d4ed8; }
-    .bofu { background: #dcfce7; color: #15803d; }
-    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 12px; }
-    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; }
-    th { background: var(--sidebar); font-weight: 600; }
-    @media (max-width: 768px) {
-      aside { display: none; }
-      main { margin-left: 0; padding: 28px 20px; }
+
+    .modal h2 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 16px;
     }
+
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .field input, .field select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-family: inherit;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .hidden { display: none; }
   </style>
 </head>
 <body>
-  <aside>
-    <h2>📊 Baliston Content Hub</h2>
-    <div class="nav-label">Workspace</div>
-    <nav>
-      <a href="#overview">Overview & Governance</a>
-      <a href="#funnel">Content Funnel</a>
-      <a href="#pipeline">Active Q4/Q1 Concepts</a>
-      <a href="#workflow">Tools & Sign-Offs</a>
+
+  <header>
+    <div class="top-bar">
+      <div class="brand">
+        <span class="brand-title">Baliston Health</span>
+        <span class="mono-label">Content &amp; Marketing Planner</span>
+      </div>
+
+      <div class="controls">
+        <button class="pill-btn" onclick="changeWeek(-1)">‹</button>
+        <select class="week-select" id="weekSelect">
+          <option>9–13 Nov 2026 · this week</option>
+          <option>16–20 Nov 2026 · next week</option>
+          <option>23–27 Nov 2026 · W48</option>
+          <option>Q1 2027 · New Year Rush</option>
+        </select>
+        <button class="pill-btn" onclick="changeWeek(1)">›</button>
+        <button class="pill-btn" onclick="openModal()">+ Item</button>
+        <span class="save-status" id="saveStatus">SAVED IN THIS BROWSER</span>
+        <a class="pill-btn" style="text-decoration:none" href="https://github.com/sunniva-baliston/baliston-marketing-hub/issues" target="_blank">GitHub Issues ↗</a>
+        <button class="pill-btn" onclick="resetDefaults()" title="Reset to starter data">•••</button>
+      </div>
+    </div>
+
+    <nav class="main-tabs" id="mainTabs">
+      <button class="main-tab" data-view="dashboard">Dashboard <span class="tab-count">4</span></button>
+      <button class="main-tab active" data-view="ideabank">Idea bank <span class="tab-count" id="count-ideabank">6</span></button>
+      <button class="main-tab" data-view="pipeline">Pipeline <span class="tab-count" id="count-pipeline">4</span></button>
+      <button class="main-tab" data-view="funnel">Funnel</button>
+      <button class="main-tab" data-view="research">Research <span class="tab-count">3</span></button>
+      <button class="main-tab" data-view="scripts">Scripts <span class="tab-count">3</span></button>
+      <button class="main-tab" data-view="governance">Sign-off &amp; Governance</button>
     </nav>
-    <div class="nav-label">GitHub Repo Links</div>
-    <nav>
-      <a href="https://github.com/sunniva-baliston/baliston-marketing-hub/issues" target="_blank">📋 Content Planner (Issues)</a>
-      <a href="https://github.com/sunniva-baliston/baliston-marketing-hub/tree/main/01-strategy-and-funnel" target="_blank">📁 01 Strategy & Funnel</a>
-      <a href="https://github.com/sunniva-baliston/baliston-marketing-hub/tree/main/02-campaigns-and-briefs" target="_blank">📁 02 Campaigns & Briefs</a>
-      <a href="https://github.com/sunniva-baliston/baliston-marketing-hub/tree/main/03-ai-and-prompt-library" target="_blank">📁 03 AI Prompt Library</a>
-    </nav>
-  </aside>
+  </header>
 
   <main>
-    <div class="icon">👟</div>
-    <h1 id="overview">Baliston Marketing & Content Hub</h1>
-    <p class="subtitle">Centralized content funnel, campaign pipeline, and creative workflow across Health, Sport, Care & Footwear.</p>
-
-    <div class="callout">
-      <strong>Governance Reminder:</strong> Synced SharePoint Knowledge Libraries remain the single source of truth for brand guidelines and clinical claims. Verify all stats against <code>pending-sign-off.md</code> before scheduling.
-    </div>
-
-    <h2 class="section" id="funnel">Multi-Brand Content Funnel</h2>
-    <div class="grid">
-      <div class="card">
-        <span class="tag tofu">TOFU • Awareness</span>
-        <h3>Brand & Reactive / Seasonal</h3>
-        <p>Stop the scroll with timely movement hooks: winter gait shift, Feb 15 New Year runner injury timeline, and viral shoe trends.</p>
+    <!-- IDEA BANK VIEW (Default) -->
+    <section id="view-ideabank" class="view">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">IDEA BANK</div>
+          <h1 class="page-title">Content &amp; Campaign Concepts</h1>
+          <p class="page-desc">Unexplored product angles, seasonal hooks, and clinical questions categorized across Baliston Health, Sport, and Care.</p>
+        </div>
+        <button class="primary-btn" onclick="openModal()">Add a concept</button>
       </div>
-      <div class="card">
-        <span class="tag mofu">MOFU • Education</span>
-        <h3>Clinical Proof & Biomechanics</h3>
-        <p>Show why inside-the-shoe overground data beats eyeballing: fatigue drift (Min 1 vs. Min 25) and shoe-to-shoe A/B testing.</p>
-      </div>
-      <div class="card">
-        <span class="tag bofu">BOFU • Conversion</span>
-        <h3>Product & Clinic ROI</h3>
-        <p>Highlight Balia AI post-scan workflows, patient rehab retention proof, and Q1 clinic screening readiness.</p>
-      </div>
-    </div>
 
-    <h2 class="section" id="pipeline">Active Q4 / Q1 Content Concepts</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Concept</th>
-          <th>Format</th>
-          <th>Category</th>
-          <th>Vertical</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Carbon Plates, Zero-Drop, or Max Cushion</td>
-          <td>IG Carousel</td>
-          <td>Educational / Reactive</td>
-          <td>Sport / Health</td>
-          <td>Drafting</td>
-        </tr>
-        <tr>
-          <td>Why Feb 15 Is Peak Injury Week for New Runners</td>
-          <td>IG Reel</td>
-          <td>Seasonal / Awareness</td>
-          <td>Sport</td>
-          <td>Idea Backlog</td>
-        </tr>
-        <tr>
-          <td>The Solo Clinician's Second Brain (Balia AI)</td>
-          <td>IG Carousel</td>
-          <td>Product Awareness</td>
-          <td>Health</td>
-          <td>Idea Backlog</td>
-        </tr>
-        <tr>
-          <td>Year-End Clinic Investment & Patient Retention</td>
-          <td>LinkedIn / Carousel</td>
-          <td>Conversion / ROI</td>
-          <td>Health / Care</td>
-          <td>Idea Backlog</td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="sub-tabs" id="subTabs">
+        <button class="sub-tab active" data-filter="all">Everything <span class="tab-count" id="sub-all">6</span></button>
+        <button class="sub-tab" data-filter="Educational"><span class="dot" style="background:#1b4d45"></span> Educational</button>
+        <button class="sub-tab" data-filter="Reactive / Seasonal"><span class="dot" style="background:#b45309"></span> Reactive / Seasonal</button>
+        <button class="sub-tab" data-filter="Product Awareness"><span class="dot" style="background:#6d28d9"></span> Product Awareness</button>
+        <button class="sub-tab" data-filter="Brand Awareness"><span class="dot" style="background:#3f6212"></span> Brand Awareness</button>
+      </div>
 
-    <h2 class="section" id="workflow">Sign-Off & Production Workflow</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Gate / Tool</th>
-          <th>Owner</th>
-          <th>Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Content Briefs & Kanban</strong></td>
-          <td>Sunniva (GitHub Issues)</td>
-          <td>Draft copy, hooks, slide structure, and track funnel balance</td>
-        </tr>
-        <tr>
-          <td><strong>Visual Design</strong></td>
-          <td>Canva Pro / Jamie</td>
-          <td>Build carousels and Reels visuals using approved brand templates</td>
-        </tr>
-        <tr>
-          <td><strong>Brand & Visual Sign-Off</strong></td>
-          <td>Neil</td>
-          <td>Final check on positioning, tone, and brand consistency</td>
-        </tr>
-        <tr>
-          <td><strong>Clinical Claim Sign-Off</strong></td>
-          <td>Franck</td>
-          <td>Approve any biomechanical metrics, stats, or medical claims</td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="count-caption" id="itemCountLabel">6 saved</div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Concept / Hook</th>
+              <th>Category</th>
+              <th>Format</th>
+              <th>Audience</th>
+              <th>Status</th>
+              <th>Sign-Off</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody id="ideaTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- DASHBOARD VIEW -->
+    <section id="view-dashboard" class="view hidden">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">OVERVIEW</div>
+          <h1 class="page-title">Marketing Workspace Snapshot</h1>
+          <p class="page-desc">Weekly focus, active deliverables, and quick links to SharePoint Knowledge Libraries and GitHub Issue templates.</p>
+        </div>
+      </div>
+
+      <div class="funnel-grid">
+        <div class="panel-card">
+          <span class="mono-label">THIS WEEK'S FOCUS</span>
+          <h3>Q4/Q1 Content Engine</h3>
+          <p>Finalizing GitHub Kanban workflows, auditing Canva Pro templates, and scripting unexplored IG concepts.</p>
+          <ul class="panel-list">
+            <li><span>GitHub Repo &amp; Issue Templates</span><strong>Live</strong></li>
+            <li><span>Canva Pro Template Audit</span><strong>In Progress</strong></li>
+            <li><span>SharePoint Claim Verification</span><strong>Mandatory</strong></li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <span class="mono-label">PENDING TEAM INPUTS</span>
+          <h3>Open Dependencies</h3>
+          <p>Items awaiting confirmation across Teams before publishing.</p>
+          <ul class="panel-list">
+            <li><span>Baliston Footwear IG 2FA</span><strong>Malik</strong></li>
+            <li><span>Visual &amp; Design Framework</span><strong>Jamie</strong></li>
+            <li><span>Metricool Plan Decision</span><strong>Neil</strong></li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <span class="mono-label">GOVERNANCE RULES</span>
+          <h3>Sign-Off Gates</h3>
+          <p>Source of truth remains the synced SharePoint Health+Care &amp; Sport libraries.</p>
+          <ul class="panel-list">
+            <li><span>Brand &amp; Visual Positioning</span><strong>Neil</strong></li>
+            <li><span>Clinical &amp; Performance Claims</span><strong>Franck</strong></li>
+            <li><span>Claim Reference Doc</span><strong>pending-sign-off.md</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIPELINE VIEW -->
+    <section id="view-pipeline" class="view hidden">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">PRODUCTION PIPELINE</div>
+          <h1 class="page-title">Active Drafts &amp; Scheduled Posts</h1>
+          <p class="page-desc">Track posts moving from copywriting in GitHub Issues to Canva design and Metricool scheduling.</p>
+        </div>
+        <a class="primary-btn" style="text-decoration:none" href="https://github.com/sunniva-baliston/baliston-marketing-hub/issues/new/choose" target="_blank">New GitHub Issue ↗</a>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Deliverable</th>
+              <th>Vertical</th>
+              <th>Channel</th>
+              <th>Stage</th>
+              <th>Owner / Gate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-title">[CAROUSEL] Carbon Plates, Zero-Drop, or Max Cushion</td>
+              <td>Baliston Sport / Health</td>
+              <td>Instagram</td>
+              <td><span class="status-pill review">Drafting Copy</span></td>
+              <td>Sunniva → Neil</td>
+            </tr>
+            <tr>
+              <td class="cell-title">[REEL] Why Feb 15 Is Peak Injury Week for New Runners</td>
+              <td>Baliston Sport</td>
+              <td>IG Reels / YT Shorts</td>
+              <td><span class="status-pill">Backlog</span></td>
+              <td>Franck (Stats check)</td>
+            </tr>
+            <tr>
+              <td class="cell-title">[CAROUSEL] The Solo Clinician's Second Brain (Balia AI)</td>
+              <td>Baliston Health</td>
+              <td>Instagram / LinkedIn</td>
+              <td><span class="status-pill">Backlog</span></td>
+              <td>Neil / Franck</td>
+            </tr>
+            <tr>
+              <td class="cell-title">[POST] Year-End Clinic Investment &amp; Q1 Runner Readiness</td>
+              <td>Baliston Health / Care</td>
+              <td>LinkedIn</td>
+              <td><span class="status-pill">Backlog</span></td>
+              <td>Neil</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FUNNEL VIEW -->
+    <section id="view-funnel" class="view hidden">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">STRATEGY</div>
+          <h1 class="page-title">Multi-Brand Content Funnel</h1>
+          <p class="page-desc">Mapping awareness, clinical education, and conversion angles across Health, Sport, Care, and Footwear.</p>
+        </div>
+      </div>
+      <div class="funnel-grid">
+        <div class="panel-card">
+          <span class="mono-label" style="color:#b45309">TOFU • TOP OF FUNNEL</span>
+          <h3>Awareness &amp; Reactive Hooks</h3>
+          <p>High-reach short-form video and timely carousels built around everyday runner and clinician pain points.</p>
+          <ul class="panel-list">
+            <li><span>Winter &amp; Wet-Surface Gait Shift</span><span>IG Reel</span></li>
+            <li><span>Feb 15 New Year Runner Injury Timeline</span><span>IG Reel</span></li>
+            <li><span>The 500km Shoe Retirement Test</span><span>IG Reel</span></li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <span class="mono-label" style="color:#1b4d45">MOFU • MIDDLE OF FUNNEL</span>
+          <h3>Education &amp; Clinical Proof</h3>
+          <p>Show why inside-the-shoe overground data outperforms 10-second hallway observation.</p>
+          <ul class="panel-list">
+            <li><span>Toe Shoes vs. Carbon vs. Max Cushion</span><span>Carousel</span></li>
+            <li><span>Fatigue Drift (Minute 1 vs. Minute 25)</span><span>Reel / Post</span></li>
+            <li><span>Neuro &amp; Longevity Stride Variability</span><span>Carousel</span></li>
+          </ul>
+        </div>
+        <div class="panel-card">
+          <span class="mono-label" style="color:#1d4ed8">BOFU • BOTTOM OF FUNNEL</span>
+          <h3>Product &amp; Clinic ROI</h3>
+          <p>Demonstrate Balia AI workflow speed, patient adherence, and Q1 revenue readiness.</p>
+          <ul class="panel-list">
+            <li><span>Balia AI: Solo Clinician's Second Brain</span><span>Carousel</span></li>
+            <li><span>Why Patients Quit Rehab at Week 3</span><span>Carousel</span></li>
+            <li><span>Year-End Clinic Tech Investment CTA</span><span>LinkedIn</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH VIEW -->
+    <section id="view-research" class="view hidden">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">RESEARCH</div>
+          <h1 class="page-title">Clinical &amp; Market Question Bank</h1>
+          <p class="page-desc">Real questions practitioners, runners, and clinic owners ask—turned into educational search and social content.</p>
+        </div>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Topic Cluster</th>
+              <th>Intent</th>
+              <th>Audience</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-title">Are minimalist toe shoes actually good for your gait mechanics?</td>
+              <td>Footwear Biomechanics</td>
+              <td>Informational / Reactive</td>
+              <td>Runners &amp; Podiatrists</td>
+              <td><span class="priority high">HIGH</span></td>
+            </tr>
+            <tr>
+              <td class="cell-title">How does cold weather and slick pavement alter stride length and cadence?</td>
+              <td>Seasonal Gait Shift</td>
+              <td>Educational</td>
+              <td>Sports Physiotherapists</td>
+              <td><span class="priority high">HIGH</span></td>
+            </tr>
+            <tr>
+              <td class="cell-title">How do I prove orthotic or rehab progress when patients can't feel a 5% change?</td>
+              <td>Patient Adherence &amp; ROI</td>
+              <td>Commercial / Clinical</td>
+              <td>Clinic Owners</td>
+              <td><span class="priority med">MEDIUM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SCRIPTS VIEW -->
+    <section id="view-scripts" class="view hidden">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">SCRIPTS &amp; TEMPLATES</div>
+          <h1 class="page-title">GitHub Issue Brief Blueprints</h1>
+          <p class="page-desc">Launch standardized Carousel and Short-Form Video briefs directly in your GitHub planner.</p>
+        </div>
+      </div>
+      <div class="funnel-grid">
+        <div class="panel-card">
+          <span class="mono-label">ISSUE TEMPLATE 01</span>
+          <h3>Instagram Carousel Brief</h3>
+          <p>Includes slide-by-slide hook structure, Canva template link slot, and Neil/Franck sign-off checkboxes.</p>
+          <a class="primary-btn" style="display:inline-block;text-decoration:none" href="https://github.com/sunniva-baliston/baliston-marketing-hub/issues/new?template=carousel-brief.md" target="_blank">Use Carousel Template ↗</a>
+        </div>
+        <div class="panel-card">
+          <span class="mono-label">ISSUE TEMPLATE 02</span>
+          <h3>Short-Form Video / Reel Script</h3>
+          <p>Time-coded shot list (0:00–0:25s), on-screen text hooks, audio cues, and claim verification checklist.</p>
+          <a class="primary-btn" style="display:inline-block;text-decoration:none" href="https://github.com/sunniva-baliston/baliston-marketing-hub/issues/new?template=reel-script.md" target="_blank">Use Reel Template ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOVERNANCE VIEW -->
+    <section id="view-governance" class="view hidden">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">GOVERNANCE</div>
+          <h1 class="page-title">Brand Separation &amp; Claim Approval</h1>
+          <p class="page-desc">Operational rules from the synced SharePoint Knowledge Libraries.</p>
+        </div>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Domain</th>
+              <th>Source of Truth</th>
+              <th>Approver</th>
+              <th>Rule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-title">Clinical &amp; Performance Claims</td>
+              <td>SharePoint → <code>00-Start-Here/pending-sign-off.md</code></td>
+              <td>Franck</td>
+              <td>Never publish unverified biomechanical stats or medical outcomes.</td>
+            </tr>
+            <tr>
+              <td class="cell-title">Brand &amp; Visual Templates</td>
+              <td>SharePoint Brand Folders + Canva Pro</td>
+              <td>Neil (Design: Jamie)</td>
+              <td>Keep Baliston Health (clinical) distinct from Baliston Sport (performance).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </main>
+
+  <!-- ADD CONCEPT MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <h2>Add a Content Concept</h2>
+      <div class="field">
+        <label>Concept / Hook</label>
+        <input type="text" id="inTitle" placeholder="e.g., Fatigue Drift: Your Gait at Min 1 vs. Min 25" />
+      </div>
+      <div class="field">
+        <label>Category</label>
+        <select id="inCategory">
+          <option value="Educational">Educational</option>
+          <option value="Reactive / Seasonal">Reactive / Seasonal</option>
+          <option value="Product Awareness">Product Awareness</option>
+          <option value="Brand Awareness">Brand Awareness</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Format</label>
+        <select id="inFormat">
+          <option value="IG Carousel">IG Carousel</option>
+          <option value="IG Reel">IG Reel</option>
+          <option value="LinkedIn Post">LinkedIn Post</option>
+          <option value="YT Short">YT Short</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Audience</label>
+        <input type="text" id="inAudience" placeholder="e.g., Sports Physiotherapists" />
+      </div>
+      <div class="field">
+        <label>Priority</label>
+        <select id="inPriority">
+          <option value="HIGH">HIGH</option>
+          <option value="MED">MEDIUM</option>
+          <option value="LOW">LOW</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button class="pill-btn" onclick="closeModal()">Cancel</button>
+        <button class="primary-btn" onclick="addConcept()">Save concept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const DEFAULT_IDEAS = [
+      {
+        title: "Carbon Plates, Zero-Drop, or Max Cushion: What Changes Inside Your Shoe?",
+        category: "Educational",
+        format: "IG Carousel",
+        audience: "Runners & Sports Physios",
+        status: "Drafting",
+        signoff: "Neil / Franck",
+        priority: "HIGH"
+      },
+      {
+        title: "Why Feb 15 Is Peak Injury Week for New Year Runners (Resolution Stats Hook)",
+        category: "Reactive / Seasonal",
+        format: "IG Reel",
+        audience: "Everyday Runners & Physios",
+        status: "Not yet",
+        signoff: "Franck (Stats)",
+        priority: "HIGH"
+      },
+      {
+        title: "Are Toe Shoes Good for Your Gait? Measuring Minimalist Transition Overground",
+        category: "Reactive / Seasonal",
+        format: "IG Reel",
+        audience: "Runners & Podiatrists",
+        status: "Not yet",
+        signoff: "Franck",
+        priority: "HIGH"
+      },
+      {
+        title: "The Solo Clinician's Second Brain: 3 Ways Balia AI Changes Post-Scan Consults",
+        category: "Product Awareness",
+        format: "IG Carousel",
+        audience: "Podiatrists & Clinic Owners",
+        status: "Not yet",
+        signoff: "Neil / Franck",
+        priority: "MED"
+      },
+      {
+        title: "Winter & Wet-Surface Gait Shift: How Cold Stiffness Alters Cadence",
+        category: "Reactive / Seasonal",
+        format: "IG Reel",
+        audience: "Runners & Coaches",
+        status: "Not yet",
+        signoff: "Neil",
+        priority: "MED"
+      },
+      {
+        title: "Year-End Clinic Investment: Why Visual Proof Fixes Week-3 Patient Drop-Off",
+        category: "Brand Awareness",
+        format: "IG Carousel",
+        audience: "Clinic Owners",
+        status: "Not yet",
+        signoff: "Neil",
+        priority: "MED"
+      }
+    ];
+
+    let ideas = JSON.parse(localStorage.getItem("baliston_ideas_v1")) || DEFAULT_IDEAS;
+    let currentFilter = "all";
+
+    function renderIdeas() {
+      const tbody = document.getElementById("ideaTableBody");
+      const filtered = currentFilter === "all" ? ideas : ideas.filter(i => i.category === currentFilter);
+
+      document.getElementById("count-ideabank").textContent = ideas.length;
+      document.getElementById("sub-all").textContent = ideas.length;
+      document.getElementById("itemCountLabel").textContent = `${filtered.length} saved`;
+
+      tbody.innerHTML = filtered.map(item => `
+        <tr>
+          <td class="cell-title">${item.title}</td>
+          <td>${item.category}</td>
+          <td>${item.format}</td>
+          <td>${item.audience}</td>
+          <td><span class="status-pill ${item.status === 'Drafting' ? 'review' : ''}">${item.status}</span></td>
+          <td>${item.signoff}</td>
+          <td><span class="priority ${item.priority.toLowerCase()}">${item.priority}</span></td>
+        </tr>
+      `).join("");
+    }
+
+    // Main tab switching
+    document.querySelectorAll(".main-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".main-tab").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const view = btn.dataset.view;
+        document.querySelectorAll(".view").forEach(v => v.classList.add("hidden"));
+        document.getElementById("view-" + view).classList.remove("hidden");
+      });
+    });
+
+    // Sub-tab filtering
+    document.querySelectorAll(".sub-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".sub-tab").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.dataset.filter;
+        renderIdeas();
+      });
+    });
+
+    function openModal() { document.getElementById("modalBackdrop").classList.add("open"); }
+    function closeModal() { document.getElementById("modalBackdrop").classList.remove("open"); }
+
+    function addConcept() {
+      const title = document.getElementById("inTitle").value.trim();
+      if (!title) return;
+      ideas.unshift({
+        title,
+        category: document.getElementById("inCategory").value,
+        format: document.getElementById("inFormat").value,
+        audience: document.getElementById("inAudience").value.trim() || "Clinicians",
+        status: "Not yet",
+        signoff: "Neil",
+        priority: document.getElementById("inPriority").value
+      });
+      localStorage.setItem("baliston_ideas_v1", JSON.stringify(ideas));
+      document.getElementById("inTitle").value = "";
+      document.getElementById("inAudience").value = "";
+      closeModal();
+      renderIdeas();
+    }
+
+    function changeWeek(dir) {
+      const sel = document.getElementById("weekSelect");
+      const next = sel.selectedIndex + dir;
+      if (next >= 0 && next < sel.options.length) sel.selectedIndex = next;
+    }
+
+    function resetDefaults() {
+      if (confirm("Reset table back to default starter concepts?")) {
+        localStorage.removeItem("baliston_ideas_v1");
+        ideas = [...DEFAULT_IDEAS];
+        renderIdeas();
+      }
+    }
+
+    renderIdeas();
+  </script>
 </body>
 </html>
