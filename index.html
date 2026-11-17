@@ -53,4 +53,1039 @@
       flex-direction: column;
       justify-content: space-between;
       transition: width 0.2s ease, margin-left 0.2s ease;
-      flex-shrink: 
+      flex-shrink: 0;
+      padding: 14px 10px;
+      z-index: 20;
+    }
+
+    aside.collapsed {
+      margin-left: -248px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      display: grid;
+      place-items: center;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .nav-section-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 8px 10px 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 7px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.12s ease, color 0.12s ease;
+      margin-bottom: 2px;
+    }
+
+    .nav-item:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+
+    .nav-item.active {
+      background: var(--surface-active);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    /* Main Workspace */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    header.topbar {
+      height: 48px;
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .icon-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      border-radius: 5px;
+      padding: 4px 7px;
+      cursor: pointer;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-btn:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-primary:hover { opacity: 0.92; }
+
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      padding: 5px 11px;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover { background: var(--surface-hover); }
+
+    /* Scrollable Page Container */
+    .content-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 36px 48px 80px;
+    }
+
+    .page-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .page-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--teal);
+      background: var(--teal-soft);
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    h1.page-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+
+    .page-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* KPI Strip */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .kpi-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: var(--bg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .kpi-value {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .kpi-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--teal);
+    }
+
+    /* Views */
+    .view-section { display: none; }
+    .view-section.active { display: block; }
+
+    /* Filter Toolbar */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .pill:hover { background: var(--surface-hover); color: var(--text); }
+    .pill.active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+
+    .search-input {
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-family: inherit;
+      font-size: 12.5px;
+      width: 220px;
+      outline: none;
+    }
+
+    .search-input:focus { border-color: var(--teal); }
+
+    /* Notion-style Database Table */
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow-x: auto;
+      background: var(--bg);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--sidebar-bg);
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 12px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tbody tr { cursor: pointer; transition: background 0.1s ease; }
+    tbody tr:hover { background: var(--sidebar-bg); }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .tag-teal { background: var(--teal-soft); color: var(--teal); }
+    .tag-blue { background: var(--blue-soft); color: var(--blue); }
+    .tag-amber { background: var(--amber-soft); color: var(--amber); }
+    .tag-purple { background: var(--purple-soft); color: var(--purple); }
+    .tag-red { background: var(--red-soft); color: var(--red); }
+
+    /* Funnel Architecture */
+    .funnel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .funnel-stage {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .stage-step {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .stage-cvr {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: var(--surface-hover);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--text-secondary);
+    }
+
+    .stage-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .stage-goal {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+
+    .stage-assets {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+    }
+
+    .stage-assets li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stage-assets li::before {
+      content: "→";
+      color: var(--teal);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Pillar Cards */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .pillar-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .pillar-card h3 {
+      font-size: 15px;
+      margin: 8px 0 6px;
+    }
+
+    .pillar-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Slide-over Drawer */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 15, 0.25);
+      display: none;
+      justify-content: flex-end;
+      z-index: 50;
+    }
+
+    .drawer-backdrop.open { display: flex; }
+
+    .drawer {
+      width: 440px;
+      max-width: 92vw;
+      background: var(--bg);
+      height: 100%;
+      box-shadow: var(--shadow-lg);
+      padding: 24px 28px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .drawer-meta {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 10px;
+      font-size: 13px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .drawer-meta span:nth-child(odd) {
+      color: var(--text-secondary);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--text);
+      color: #fff;
+      font-size: 12.5px;
+      padding: 9px 14px;
+      border-radius: 6px;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 100;
+    }
+
+    .toast.show { opacity: 1; }
+
+    @media (max-width: 960px) {
+      .kpi-grid, .funnel-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .content-scroll { padding: 24px 20px 60px; }
+      aside { position: fixed; height: 100%; }
+    }
+
+    @media (max-width: 560px) {
+      .kpi-grid, .funnel-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Left Navigation Sidebar -->
+  <aside id="sidebar">
+    <div>
+      <div class="brand">
+        <div class="brand-mark">B</div>
+        <div>
+          <div class="brand-title">Baliston</div>
+          <div class="brand-sub">Marketing &amp; Content OS</div>
+        </div>
+      </div>
+
+      <div class="nav-section-label">Q4 Execution</div>
+      <button class="nav-item active" data-view="content">
+        <span class="nav-left">📅 Q4 Content Plan</span>
+        <span class="nav-badge" id="navCount">12</span>
+      </button>
+      <button class="nav-item" data-view="funnel">
+        <span class="nav-left">🔻 Conversion Funnel</span>
+        <span class="nav-badge">4</span>
+      </button>
+      <button class="nav-item" data-view="pillars">
+        <span class="nav-left">🧭 Messaging Pillars</span>
+        <span class="nav-badge">3</span>
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="status-pill">
+        <span class="dot"></span>
+        <span>Q4 Roadmap • Public View</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main>
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="icon-btn" id="toggleSidebar" title="Toggle sidebar">☰</button>
+        <span>Baliston / <strong id="breadcrumb" style="color: var(--text); font-weight: 500;">Q4 Content Plan</strong></span>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn-secondary" id="copyLinkBtn">Copy Share Link</button>
+      </div>
+    </header>
+
+    <div class="content-scroll">
+      <div class="page-inner">
+        <div class="page-kicker">Q4 GROWTH &amp; DEMAND GEN</div>
+        <h1 class="page-title">Q4 Content Plan &amp; Conversion Funnel</h1>
+        <p class="page-desc">
+          Unified editorial calendar, distribution cadence, and full-funnel conversion architecture for Baliston's Q4 push. Click any content item to inspect its brief, CTA, and funnel stage.
+        </p>
+
+        <!-- Executive KPIs -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Q4 Planned Assets</div>
+            <div class="kpi-value">12 Deliverables</div>
+            <div class="kpi-meta">Oct – Dec Sprint</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Top-of-Funnel Reach Target</div>
+            <div class="kpi-value">180K+</div>
+            <div class="kpi-meta">LinkedIn + Organic + PR</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Lead Capture Conversion</div>
+            <div class="kpi-value">6.4%</div>
+            <div class="kpi-meta">Gated Playbooks &amp; Audits</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Pipeline Attribution Goal</div>
+            <div class="kpi-value">38 SQLs</div>
+            <div class="kpi-meta">Demo &amp; Pilot Requests</div>
+          </div>
+        </div>
+
+        <!-- VIEW 1: Q4 CONTENT PLAN -->
+        <section id="view-content" class="view-section active">
+          <div class="toolbar">
+            <div class="filter-pills" id="stageFilters">
+              <button class="pill active" data-filter="ALL">All Stages</button>
+              <button class="pill" data-filter="TOFU">TOFU • Awareness</button>
+              <button class="pill" data-filter="MOFU">MOFU • Consideration</button>
+              <button class="pill" data-filter="BOFU">BOFU • Decision</button>
+              <button class="pill" data-filter="RETENTION">Retention</button>
+            </div>
+            <input type="search" id="searchInput" class="search-input" placeholder="Search title, channel, owner..." />
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Publish Date</th>
+                  <th>Content Asset</th>
+                  <th>Channel</th>
+                  <th>Funnel Stage</th>
+                  <th>Status</th>
+                  <th>Primary CTA</th>
+                </tr>
+              </thead>
+              <tbody id="contentTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- VIEW 2: FUNNEL ARCHITECTURE -->
+        <section id="view-funnel" class="view-section">
+          <div class="funnel-grid">
+            <div class="funnel-stage">
+              <div>
+                <div class="stage-top">
+                  <span class="stage-step">01 • TOFU</span>
+                  <span class="stage-cvr">100% Traffic</span>
+                </div>
+                <div class="stage-title">Problem &amp; Category Awareness</div>
+                <p class="stage-goal">Capture high-intent operators and biomechanics/performance leads through data-backed insights and founder POVs.</p>
+              </div>
+              <ul class="stage-assets">
+                <li>LinkedIn Executive Carousel Series</li>
+                <li>Q4 Industry Benchmark Report</li>
+                <li>Short-form Field &amp; Lab Clips</li>
+              </ul>
+            </div>
+
+            <div class="funnel-stage">
+              <div>
+                <div class="stage-top">
+                  <span class="stage-step">02 • MOFU</span>
+                  <span class="stage-cvr">~6.4% Opt-In</span>
+                </div>
+                <div class="stage-title">Evaluation &amp; Lead Capture</div>
+                <p class="stage-goal">Convert anonymous readers into known prospects using interactive diagnostic tools and deep-dive playbooks.</p>
+              </div>
+              <ul class="stage-assets">
+                <li>Interactive Gait &amp; Load Audit</li>
+                <li>Technical Whitepaper Download</li>
+                <li>Live Q4 Customer Webinar</li>
+              </ul>
+            </div>
+
+            <div class="funnel-stage">
+              <div>
+                <div class="stage-top">
+                  <span class="stage-step">03 • BOFU</span>
+                  <span class="stage-cvr">~22% SQL</span>
+                </div>
+                <div class="stage-title">Proof &amp; Pilot Conversion</div>
+                <p class="stage-goal">Remove buying friction with quantified ROI case studies, side-by-side comparisons, and 30-day pilot offers.</p>
+              </div>
+              <ul class="stage-assets">
+                <li>Enterprise ROI Case Study</li>
+                <li>1-on-1 Pilot Scoping Call</li>
+                <li>Security &amp; Integration Spec Sheet</li>
+              </ul>
+            </div>
+
+            <div class="funnel-stage">
+              <div>
+                <div class="stage-top">
+                  <span class="stage-step">04 • EXPAND</span>
+                  <span class="stage-cvr">NRR Focus</span>
+                </div>
+                <div class="stage-title">Onboarding &amp; Advocacy</div>
+                <p class="stage-goal">Accelerate time-to-value for Q4 cohorts and turn power users into public champions and referral sources.</p>
+              </div>
+              <ul class="stage-assets">
+                <li>30-60-90 Day Rollout Playbook</li>
+                <li>Quarterly Executive Business Review</li>
+                <li>Co-Marketed Customer Spotlight</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: MESSAGING PILLARS -->
+        <section id="view-pillars" class="view-section">
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <span class="tag tag-teal">Pillar 01 • Precision Telemetry</span>
+              <h3>Real-World Data Over Lab Guesswork</h3>
+              <p>Highlight continuous, real-world biomechanical insights without disrupting natural workflow or movement.</p>
+            </div>
+            <div class="pillar-card">
+              <span class="tag tag-blue">Pillar 02 • Proactive Prevention</span>
+              <h3>Detect Fatigue &amp; Risk Early</h3>
+              <p>Frame Baliston as an early-warning intelligence layer that lowers injury downtime and operational costs.</p>
+            </div>
+            <div class="pillar-card">
+              <span class="tag tag-purple">Pillar 03 • Fast Time-to-Value</span>
+              <h3>Zero-Friction Deployment at Scale</h3>
+              <p>Prove how teams go from unboxing to actionable dashboard insights in under 48 hours.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-over Content Brief Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop">
+    <div class="drawer" role="dialog" aria-modal="true">
+      <div class="drawer-header">
+        <div>
+          <div class="mono" id="drawerDate" style="margin-bottom: 4px;"></div>
+          <h2 id="drawerTitle" style="font-size: 18px; line-height: 1.3;"></h2>
+        </div>
+        <button class="icon-btn" id="closeDrawer" style="font-size: 16px;">✕</button>
+      </div>
+
+      <div class="drawer-meta">
+        <span>Channel</span><strong id="drawerChannel"></strong>
+        <span>Funnel Stage</span><span id="drawerStage"></span>
+        <span>Status</span><span id="drawerStatus"></span>
+        <span>Owner</span><span id="drawerOwner"></span>
+        <span>Primary CTA</span><strong id="drawerCta" style="color: var(--teal);"></strong>
+      </div>
+
+      <div>
+        <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em;">Editorial Angle &amp; Funnel Handoff</div>
+        <p id="drawerBrief" style="font-size: 13.5px; line-height: 1.6; color: var(--text);"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Shareable URL copied to clipboard</div>
+
+  <script>
+    const CONTENT_ITEMS = [
+      {
+        date: "Oct 06",
+        title: "Q4 Benchmark Report: Fatigue & Movement Trends",
+        channel: "Blog + LinkedIn",
+        stage: "TOFU",
+        status: "Published",
+        owner: "Content Lead",
+        cta: "Download Full PDF Report",
+        brief: "Anchor Q4 asset summarizing anonymized movement and fatigue insights. Distributed via founder LinkedIn threads and gated behind a lightweight email capture for the full dataset."
+      },
+      {
+        date: "Oct 14",
+        title: "5 Hidden Signals of Asymmetry Before Injury Strikes",
+        channel: "LinkedIn Carousel",
+        stage: "TOFU",
+        status: "Published",
+        owner: "Product Marketing",
+        cta: "Read Diagnostic Breakdown",
+        brief: "Visual 8-slide carousel designed for high saves and shares among performance directors and clinical leads. Links directly to the interactive assessment tool."
+      },
+      {
+        date: "Oct 22",
+        title: "Interactive Gait & Load Readiness Self-Audit",
+        channel: "Web Landing Page",
+        stage: "MOFU",
+        status: "In Review",
+        owner: "Growth Ops",
+        cta: "Get Custom Readiness Score",
+        brief: "2-minute interactive scorecard that segments prospects by team size and routes high-fit leads directly to a personalized benchmark summary."
+      },
+      {
+        date: "Oct 29",
+        title: "Field vs. Lab: Why Continuous Telemetry Wins",
+        channel: "Newsletter + Substack",
+        stage: "TOFU",
+        status: "Scheduled",
+        owner: "Founder / CEO",
+        cta: "Subscribe to Field Notes",
+        brief: "Contrarian POV essay comparing periodic lab testing with continuous real-world telemetry, setting up our Q4 product narrative."
+      },
+      {
+        date: "Nov 05",
+        title: "Live Webinar: Turning Telemetry into Daily Decisions",
+        channel: "Zoom + LinkedIn Live",
+        stage: "MOFU",
+        status: "In Progress",
+        owner: "Customer Success",
+        cta: "Reserve Live Seat",
+        brief: "35-minute live walkthrough with a flagship customer showing weekly workflow integration, followed by 15 minutes of live Q&A."
+      },
+      {
+        date: "Nov 12",
+        title: "Case Study: Cutting Lower-Limb Downtime by 34%",
+        channel: "PDF + Sales Deck",
+        stage: "BOFU",
+        status: "In Progress",
+        owner: "Product Marketing",
+        cta: "Book a 30-Day Pilot",
+        brief: "Quantified customer proof point built for late-stage prospects evaluating budget allocation before year-end."
+      },
+      {
+        date: "Nov 19",
+        title: "Baliston vs. Legacy Motion Capture: Buyer's Guide",
+        channel: "Comparison Page",
+        stage: "BOFU",
+        status: "Drafting",
+        owner: "Product Marketing",
+        cta: "Request Custom ROI Model",
+        brief: "Transparent comparison matrix covering setup time, total cost of ownership, and real-world accuracy."
+      },
+      {
+        date: "Nov 26",
+        title: "48-Hour Deployment Checklist for New Teams",
+        channel: "Help Center + Email",
+        stage: "RETENTION",
+        status: "Scheduled",
+        owner: "Customer Success",
+        cta: "Launch Onboarding Kit",
+        brief: "Step-by-step rollout guide sent automatically upon pilot kickoff to compress time-to-first-insight."
+      },
+      {
+        date: "Dec 03",
+        title: "Year-End Budget Guide: Locking In Q1 Pilot Credits",
+        channel: "Outbound + Email",
+        stage: "BOFU",
+        status: "Drafting",
+        owner: "Sales Lead",
+        cta: "Claim Q4 Pilot Terms",
+        brief: "Targeted campaign for warm MOFU leads with remaining Q4 budget looking to start deployment in January."
+      },
+      {
+        date: "Dec 10",
+        title: "Customer Spotlight: Inside a High-Performance Rollout",
+        channel: "Video + LinkedIn",
+        stage: "MOFU",
+        status: "Planned",
+        owner: "Content Lead",
+        cta: "Watch 3-Min Case Video",
+        brief: "Short documentary-style customer interview highlighting ease of adoption across coaches and analysts."
+      },
+      {
+        date: "Dec 16",
+        title: "Q4 Product Release Digest & Q1 Roadmap Preview",
+        channel: "Customer Newsletter",
+        stage: "RETENTION",
+        status: "Planned",
+        owner: "Product Lead",
+        cta: "Join Beta Cohort",
+        brief: "Recap of Q4 platform improvements and early-access signups for Q1 analytics features."
+      },
+      {
+        date: "Dec 22",
+        title: "2026 Performance & Movement Intelligence Predictions",
+        channel: "PR + LinkedIn",
+        stage: "TOFU",
+        status: "Planned",
+        owner: "Founder / CEO",
+        cta: "Read Full Outlook",
+        brief: "End-of-year thought leadership piece designed to capture January planning traffic and media mentions."
+      }
+    ];
+
+    const stageBadgeClass = {
+      TOFU: "tag-blue",
+      MOFU: "tag-purple",
+      BOFU: "tag-teal",
+      RETENTION: "tag-amber"
+    };
+
+    const statusBadgeClass = {
+      Published: "tag-teal",
+      Scheduled: "tag-blue",
+      "In Review": "tag-amber",
+      "In Progress": "tag-purple",
+      Drafting: "tag-amber",
+      Planned: "tag-red"
+    };
+
+    let activeStage = "ALL";
+    let searchQuery = "";
+
+    const tbody = document.getElementById("contentTableBody");
+    const navCount = document.getElementById("navCount");
+
+    function renderTable() {
+      const filtered = CONTENT_ITEMS.filter(item => {
+        const matchesStage = activeStage === "ALL" || item.stage === activeStage;
+        const q = searchQuery.toLowerCase();
+        const matchesSearch = !q ||
+          item.title.toLowerCase().includes(q) ||
+          item.channel.toLowerCase().includes(q) ||
+          item.owner.toLowerCase().includes(q) ||
+          item.cta.toLowerCase().includes(q);
+        return matchesStage && matchesSearch;
+      });
+
+      navCount.textContent = filtered.length;
+      tbody.innerHTML = filtered.map((item, idx) => `
+        <tr data-index="${CONTENT_ITEMS.indexOf(item)}">
+          <td class="mono">${item.date}</td>
+          <td style="font-weight: 500;">${item.title}</td>
+          <td style="color: var(--text-secondary);">${item.channel}</td>
+          <td><span class="tag ${stageBadgeClass[item.stage] || 'tag-blue'}">${item.stage}</span></td>
+          <td><span class="tag ${statusBadgeClass[item.status] || 'tag-amber'}">${item.status}</span></td>
+          <td style="color: var(--teal); font-weight: 500;">${item.cta}</td>
+        </tr>
+      `).join("");
+
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color: var(--text-secondary); padding: 28px;">No deliverables match your current filter.</td></tr>`;
+      }
+    }
+
+    // Filter pills
+    document.getElementById("stageFilters").addEventListener("click", (e) => {
+      if (!e.target.classList.contains("pill")) return;
+      document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+      e.target.classList.add("active");
+      activeStage = e.target.dataset.filter;
+      renderTable();
+    });
+
+    // Search input
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      renderTable();
+    });
+
+    // Sidebar view switching
+    document.querySelectorAll(".nav-item").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".nav-item").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const view = btn.dataset.view;
+        document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active"));
+        document.getElementById(`view-${view}`).classList.add("active");
+        document.getElementById("breadcrumb").textContent = btn.querySelector(".nav-left").textContent.replace(/^[^\w]+/, "");
+      });
+    });
+
+    // Sidebar collapse
+    document.getElementById("toggleSidebar").addEventListener("click", () => {
+      document.getElementById("sidebar").classList.toggle("collapsed");
+    });
+
+    // Row click -> open brief drawer
+    const drawerBackdrop = document.getElementById("drawerBackdrop");
+    tbody.addEventListener("click", (e) => {
+      const row = e.target.closest("tr[data-index]");
+      if (!row) return;
+      const item = CONTENT_ITEMS[Number(row.dataset.index)];
+      document.getElementById("drawerDate").textContent = `${item.date} • Q4`;
+      document.getElementById("drawerTitle").textContent = item.title;
+      document.getElementById("drawerChannel").textContent = item.channel;
+      document.getElementById("drawerStage").innerHTML = `<span class="tag ${stageBadgeClass[item.stage]}">${item.stage}</span>`;
+      document.getElementById("drawerStatus").innerHTML = `<span class="tag ${statusBadgeClass[item.status]}">${item.status}</span>`;
+      document.getElementById("drawerOwner").textContent = item.owner;
+      document.getElementById("drawerCta").textContent = item.cta;
+      document.getElementById("drawerBrief").textContent = item.brief;
+      drawerBackdrop.classList.add("open");
+    });
+
+    document.getElementById("closeDrawer").addEventListener("click", () => drawerBackdrop.classList.remove("open"));
+    drawerBackdrop.addEventListener("click", (e) => {
+      if (e.target === drawerBackdrop) drawerBackdrop.classList.remove("open");
+    });
+
+    // Copy shareable link
+    document.getElementById("copyLinkBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2200);
+      } catch (_) {}
+    });
+
+    renderTable();
+  </script>
+</body>
+</html>
