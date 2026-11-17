@@ -58,9 +58,7 @@
       z-index: 20;
     }
 
-    aside.collapsed {
-      margin-left: -248px;
-    }
+    aside.collapsed { margin-left: -248px; }
 
     .brand {
       display: flex;
@@ -84,17 +82,8 @@
       letter-spacing: -0.02em;
     }
 
-    .brand-title {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    .brand-sub {
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
+    .brand-title { font-size: 13.5px; font-weight: 600; color: var(--text); line-height: 1.2; }
+    .brand-sub { font-size: 11px; color: var(--text-secondary); }
 
     .nav-section-label {
       font-size: 11px;
@@ -124,22 +113,10 @@
       margin-bottom: 2px;
     }
 
-    .nav-item:hover {
-      background: var(--surface-hover);
-      color: var(--text);
-    }
+    .nav-item:hover { background: var(--surface-hover); color: var(--text); }
+    .nav-item.active { background: var(--surface-active); color: var(--text); font-weight: 600; }
 
-    .nav-item.active {
-      background: var(--surface-active);
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .nav-left { display: flex; align-items: center; gap: 8px; }
 
     .nav-badge {
       font-family: 'JetBrains Mono', monospace;
@@ -170,21 +147,10 @@
       font-size: 12px;
     }
 
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--teal);
-    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
 
     /* Main Workspace */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      overflow: hidden;
-    }
+    main { flex: 1; display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
 
     header.topbar {
       height: 48px;
@@ -196,13 +162,7 @@
       flex-shrink: 0;
     }
 
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
+    .topbar-left { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-secondary); }
 
     .icon-btn {
       border: 1px solid transparent;
@@ -217,16 +177,9 @@
       gap: 6px;
     }
 
-    .icon-btn:hover {
-      background: var(--surface-hover);
-      color: var(--text);
-    }
+    .icon-btn:hover { background: var(--surface-hover); color: var(--text); }
 
-    .topbar-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .topbar-actions { display: flex; align-items: center; gap: 8px; }
 
     .btn-primary {
       background: var(--teal);
@@ -238,7 +191,10 @@
       font-size: 12.5px;
       font-weight: 500;
       cursor: pointer;
-      transition: opacity 0.15s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .btn-primary:hover { opacity: 0.92; }
@@ -258,16 +214,8 @@
     .btn-secondary:hover { background: var(--surface-hover); }
 
     /* Scrollable Page Container */
-    .content-scroll {
-      flex: 1;
-      overflow-y: auto;
-      padding: 36px 48px 80px;
-    }
-
-    .page-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
+    .content-scroll { flex: 1; overflow-y: auto; padding: 36px 48px 80px; }
+    .page-inner { max-width: 1080px; margin: 0 auto; }
 
     .page-kicker {
       display: inline-flex;
@@ -282,27 +230,11 @@
       margin-bottom: 10px;
     }
 
-    h1.page-title {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 6px;
-    }
-
-    .page-desc {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 24px;
-      line-height: 1.5;
-    }
+    h1.page-title { font-size: 28px; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 6px; }
+    .page-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.5; }
 
     /* KPI Strip */
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 28px;
-    }
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px; }
 
     .kpi-card {
       border: 1px solid var(--border);
@@ -312,24 +244,9 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .kpi-label {
-      font-size: 12px;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
-    }
-
-    .kpi-value {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-    }
-
-    .kpi-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--teal);
-    }
+    .kpi-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
+    .kpi-value { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .kpi-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--teal); }
 
     /* Views */
     .view-section { display: none; }
@@ -345,11 +262,7 @@
       margin-bottom: 14px;
     }
 
-    .filter-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
+    .filter-pills { display: flex; flex-wrap: wrap; gap: 6px; }
 
     .pill {
       border: 1px solid var(--border);
@@ -364,11 +277,7 @@
     }
 
     .pill:hover { background: var(--surface-hover); color: var(--text); }
-    .pill.active {
-      background: var(--teal);
-      border-color: var(--teal);
-      color: #fff;
-    }
+    .pill.active { background: var(--teal); border-color: var(--teal); color: #fff; }
 
     .search-input {
       border: 1px solid var(--border-strong);
@@ -376,26 +285,15 @@
       padding: 5px 10px;
       font-family: inherit;
       font-size: 12.5px;
-      width: 220px;
+      width: 230px;
       outline: none;
     }
 
     .search-input:focus { border-color: var(--teal); }
 
     /* Notion-style Database Table */
-    .table-wrap {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow-x: auto;
-      background: var(--bg);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      text-align: left;
-    }
+    .table-wrap { border: 1px solid var(--border); border-radius: 8px; overflow-x: auto; background: var(--bg); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
 
     th {
       background: var(--sidebar-bg);
@@ -407,21 +305,12 @@
       white-space: nowrap;
     }
 
-    td {
-      padding: 11px 14px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: middle;
-    }
-
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
     tr:last-child td { border-bottom: none; }
     tbody tr { cursor: pointer; transition: background 0.1s ease; }
     tbody tr:hover { background: var(--sidebar-bg); }
 
-    .mono {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-secondary); }
 
     .tag {
       display: inline-block;
@@ -439,12 +328,7 @@
     .tag-red { background: var(--red-soft); color: var(--red); }
 
     /* Funnel Architecture */
-    .funnel-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 24px;
-    }
+    .funnel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
 
     .funnel-stage {
       border: 1px solid var(--border);
@@ -454,44 +338,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
     }
 
-    .stage-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .stage-step {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--teal);
-    }
-
-    .stage-cvr {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      background: var(--surface-hover);
-      padding: 2px 6px;
-      border-radius: 4px;
-      color: var(--text-secondary);
-    }
-
-    .stage-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .stage-goal {
-      font-size: 12.5px;
-      color: var(--text-secondary);
-      line-height: 1.45;
-      margin-bottom: 14px;
-    }
+    .stage-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .stage-step { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--teal); }
+    .stage-cvr { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--surface-hover); padding: 2px 6px; border-radius: 4px; color: var(--text-secondary); }
+    .stage-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .stage-goal { font-size: 12.5px; color: var(--text-secondary); line-height: 1.45; margin-bottom: 14px; }
 
     .stage-assets {
       list-style: none;
@@ -503,41 +356,14 @@
       font-size: 12px;
     }
 
-    .stage-assets li {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .stage-assets li::before {
-      content: "→";
-      color: var(--teal);
-      font-family: 'JetBrains Mono', monospace;
-    }
+    .stage-assets li { display: flex; align-items: center; gap: 6px; }
+    .stage-assets li::before { content: "→"; color: var(--teal); font-family: 'JetBrains Mono', monospace; }
 
     /* Pillar Cards */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .pillar-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px;
-    }
-
-    .pillar-card h3 {
-      font-size: 15px;
-      margin: 8px 0 6px;
-    }
-
-    .pillar-card p {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .pillar-card { border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+    .pillar-card h3 { font-size: 15px; margin: 8px 0 6px; }
+    .pillar-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 
     /* Slide-over Drawer */
     .drawer-backdrop {
@@ -552,7 +378,7 @@
     .drawer-backdrop.open { display: flex; }
 
     .drawer {
-      width: 440px;
+      width: 460px;
       max-width: 92vw;
       background: var(--bg);
       height: 100%;
@@ -570,6 +396,7 @@
       align-items: flex-start;
       border-bottom: 1px solid var(--border);
       padding-bottom: 14px;
+      gap: 12px;
     }
 
     .drawer-meta {
@@ -581,8 +408,17 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .drawer-meta span:nth-child(odd) {
-      color: var(--text-secondary);
+    .drawer-meta span:nth-child(odd) { color: var(--text-secondary); }
+
+    .brief-body {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text);
+      white-space: pre-wrap;
+      background: var(--sidebar-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
     }
 
     .toast {
@@ -631,7 +467,7 @@
       <div class="nav-section-label">Q4 Execution</div>
       <button class="nav-item active" data-view="content">
         <span class="nav-left">📅 Q4 Content Plan</span>
-        <span class="nav-badge" id="navCount">12</span>
+        <span class="nav-badge" id="navCount">0</span>
       </button>
       <button class="nav-item" data-view="funnel">
         <span class="nav-left">🔻 Conversion Funnel</span>
@@ -646,7 +482,7 @@
     <div class="sidebar-footer">
       <div class="status-pill">
         <span class="dot"></span>
-        <span>Q4 Roadmap • Public View</span>
+        <span>Live GitHub Issues Sync</span>
       </div>
     </div>
   </aside>
@@ -659,7 +495,9 @@
         <span>Baliston / <strong id="breadcrumb" style="color: var(--text); font-weight: 500;">Q4 Content Plan</strong></span>
       </div>
       <div class="topbar-actions">
+        <button class="btn-secondary" id="refreshBtn" title="Sync latest issues">↻ Refresh</button>
         <button class="btn-secondary" id="copyLinkBtn">Copy Share Link</button>
+        <a class="btn-primary" href="https://github.com/sunniva-baliston/baliston-marketing-hub/issues/new/choose" target="_blank" rel="noopener">+ New Brief</a>
       </div>
     </header>
 
@@ -668,59 +506,65 @@
         <div class="page-kicker">Q4 GROWTH &amp; DEMAND GEN</div>
         <h1 class="page-title">Q4 Content Plan &amp; Conversion Funnel</h1>
         <p class="page-desc">
-          Unified editorial calendar, distribution cadence, and full-funnel conversion architecture for Baliston's Q4 push. Click any content item to inspect its brief, CTA, and funnel stage.
+          Live editorial tracker synced directly from <strong>sunniva-baliston/baliston-marketing-hub</strong> issues, paired with Baliston's Q4 conversion funnel architecture. Click any row to read the full content brief.
         </p>
 
-        <!-- Executive KPIs -->
+        <!-- Live KPIs -->
         <div class="kpi-grid">
           <div class="kpi-card">
-            <div class="kpi-label">Q4 Planned Assets</div>
-            <div class="kpi-value">12 Deliverables</div>
-            <div class="kpi-meta">Oct – Dec Sprint</div>
+            <div class="kpi-label">Total Tracked Briefs</div>
+            <div class="kpi-value" id="kpiTotal">—</div>
+            <div class="kpi-meta">Synced from GitHub Issues</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-label">Top-of-Funnel Reach Target</div>
-            <div class="kpi-value">180K+</div>
-            <div class="kpi-meta">LinkedIn + Organic + PR</div>
+            <div class="kpi-label">Active / In Progress</div>
+            <div class="kpi-value" id="kpiOpen">—</div>
+            <div class="kpi-meta">Open Content Briefs</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-label">Lead Capture Conversion</div>
-            <div class="kpi-value">6.4%</div>
-            <div class="kpi-meta">Gated Playbooks &amp; Audits</div>
+            <div class="kpi-label">Completed / Published</div>
+            <div class="kpi-value" id="kpiClosed">—</div>
+            <div class="kpi-meta">Closed Issues</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-label">Pipeline Attribution Goal</div>
-            <div class="kpi-value">38 SQLs</div>
-            <div class="kpi-meta">Demo &amp; Pilot Requests</div>
+            <div class="kpi-label">Funnel Stages Covered</div>
+            <div class="kpi-value">4 Stages</div>
+            <div class="kpi-meta">TOFU → MOFU → BOFU → Retention</div>
           </div>
         </div>
 
-        <!-- VIEW 1: Q4 CONTENT PLAN -->
+        <!-- VIEW 1: Q4 CONTENT PLAN (LIVE GITHUB ISSUES) -->
         <section id="view-content" class="view-section active">
           <div class="toolbar">
             <div class="filter-pills" id="stageFilters">
-              <button class="pill active" data-filter="ALL">All Stages</button>
+              <button class="pill active" data-filter="ALL">All Items</button>
               <button class="pill" data-filter="TOFU">TOFU • Awareness</button>
               <button class="pill" data-filter="MOFU">MOFU • Consideration</button>
               <button class="pill" data-filter="BOFU">BOFU • Decision</button>
               <button class="pill" data-filter="RETENTION">Retention</button>
             </div>
-            <input type="search" id="searchInput" class="search-input" placeholder="Search title, channel, owner..." />
+            <input type="search" id="searchInput" class="search-input" placeholder="Search title, #id, format..." />
           </div>
 
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>Publish Date</th>
-                  <th>Content Asset</th>
-                  <th>Channel</th>
+                  <th>ID</th>
+                  <th>Content Brief</th>
+                  <th>Format / Channel</th>
                   <th>Funnel Stage</th>
                   <th>Status</th>
-                  <th>Primary CTA</th>
+                  <th>Updated</th>
                 </tr>
               </thead>
-              <tbody id="contentTableBody"></tbody>
+              <tbody id="contentTableBody">
+                <tr>
+                  <td colspan="6" style="text-align:center; color: var(--text-secondary); padding: 32px;">
+                    Syncing Q4 content briefs from GitHub...
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </section>
@@ -732,15 +576,15 @@
               <div>
                 <div class="stage-top">
                   <span class="stage-step">01 • TOFU</span>
-                  <span class="stage-cvr">100% Traffic</span>
+                  <span class="stage-cvr">Awareness</span>
                 </div>
-                <div class="stage-title">Problem &amp; Category Awareness</div>
-                <p class="stage-goal">Capture high-intent operators and biomechanics/performance leads through data-backed insights and founder POVs.</p>
+                <div class="stage-title">Problem &amp; Category Discovery</div>
+                <p class="stage-goal">Attract runners, clinicians, and performance leads through myth-busting, gait insights, and industry events.</p>
               </div>
               <ul class="stage-assets">
-                <li>LinkedIn Executive Carousel Series</li>
-                <li>Q4 Industry Benchmark Report</li>
-                <li>Short-form Field &amp; Lab Clips</li>
+                <li>Biohacking &amp; Footwear Myth-Buster Carousels</li>
+                <li>Event Coverage (e.g. MEDICA 2026)</li>
+                <li>Educational Biomechanics Clips</li>
               </ul>
             </div>
 
@@ -748,14 +592,14 @@
               <div>
                 <div class="stage-top">
                   <span class="stage-step">02 • MOFU</span>
-                  <span class="stage-cvr">~6.4% Opt-In</span>
+                  <span class="stage-cvr">Consideration</span>
                 </div>
                 <div class="stage-title">Evaluation &amp; Lead Capture</div>
-                <p class="stage-goal">Convert anonymous readers into known prospects using interactive diagnostic tools and deep-dive playbooks.</p>
+                <p class="stage-goal">Convert engaged readers into qualified leads using interactive diagnostics, deep-dive guides, and webinars.</p>
               </div>
               <ul class="stage-assets">
                 <li>Interactive Gait &amp; Load Audit</li>
-                <li>Technical Whitepaper Download</li>
+                <li>Technical Whitepaper &amp; Telemetry Breakdown</li>
                 <li>Live Q4 Customer Webinar</li>
               </ul>
             </div>
@@ -764,31 +608,31 @@
               <div>
                 <div class="stage-top">
                   <span class="stage-step">03 • BOFU</span>
-                  <span class="stage-cvr">~22% SQL</span>
+                  <span class="stage-cvr">Decision</span>
                 </div>
                 <div class="stage-title">Proof &amp; Pilot Conversion</div>
-                <p class="stage-goal">Remove buying friction with quantified ROI case studies, side-by-side comparisons, and 30-day pilot offers.</p>
+                <p class="stage-goal">Eliminate buying friction with quantified ROI case studies, side-by-side comparisons, and pilot offers.</p>
               </div>
               <ul class="stage-assets">
-                <li>Enterprise ROI Case Study</li>
+                <li>Quantified ROI Case Studies</li>
                 <li>1-on-1 Pilot Scoping Call</li>
-                <li>Security &amp; Integration Spec Sheet</li>
+                <li>Deployment &amp; Integration Spec Sheet</li>
               </ul>
             </div>
 
             <div class="funnel-stage">
               <div>
                 <div class="stage-top">
-                  <span class="stage-step">04 • EXPAND</span>
-                  <span class="stage-cvr">NRR Focus</span>
+                  <span class="stage-step">04 • RETENTION</span>
+                  <span class="stage-cvr">Expansion</span>
                 </div>
                 <div class="stage-title">Onboarding &amp; Advocacy</div>
-                <p class="stage-goal">Accelerate time-to-value for Q4 cohorts and turn power users into public champions and referral sources.</p>
+                <p class="stage-goal">Accelerate time-to-value for active users and turn successful cohorts into public champions.</p>
               </div>
               <ul class="stage-assets">
-                <li>30-60-90 Day Rollout Playbook</li>
-                <li>Quarterly Executive Business Review</li>
-                <li>Co-Marketed Customer Spotlight</li>
+                <li>Quick-Start Rollout Playbook</li>
+                <li>Quarterly Release &amp; Feature Digest</li>
+                <li>Co-Marketed Customer Spotlights</li>
               </ul>
             </div>
           </div>
@@ -798,19 +642,19 @@
         <section id="view-pillars" class="view-section">
           <div class="pillars-grid">
             <div class="pillar-card">
-              <span class="tag tag-teal">Pillar 01 • Precision Telemetry</span>
-              <h3>Real-World Data Over Lab Guesswork</h3>
-              <p>Highlight continuous, real-world biomechanical insights without disrupting natural workflow or movement.</p>
+              <span class="tag tag-teal">Pillar 01 • Evidence Over Hype</span>
+              <h3>Real-World Biomechanics Over Lab Guesswork</h3>
+              <p>Cut through footwear and biohacking myths with continuous, real-world movement telemetry.</p>
             </div>
             <div class="pillar-card">
               <span class="tag tag-blue">Pillar 02 • Proactive Prevention</span>
-              <h3>Detect Fatigue &amp; Risk Early</h3>
-              <p>Frame Baliston as an early-warning intelligence layer that lowers injury downtime and operational costs.</p>
+              <h3>Detect Asymmetry &amp; Fatigue Early</h3>
+              <p>Position Baliston as an early-warning intelligence layer that reduces injury risk and optimizes performance.</p>
             </div>
             <div class="pillar-card">
               <span class="tag tag-purple">Pillar 03 • Fast Time-to-Value</span>
               <h3>Zero-Friction Deployment at Scale</h3>
-              <p>Prove how teams go from unboxing to actionable dashboard insights in under 48 hours.</p>
+              <p>Demonstrate how clinicians, coaches, and organizations go from unboxing to actionable insights quickly.</p>
             </div>
           </div>
         </section>
@@ -823,8 +667,8 @@
     <div class="drawer" role="dialog" aria-modal="true">
       <div class="drawer-header">
         <div>
-          <div class="mono" id="drawerDate" style="margin-bottom: 4px;"></div>
-          <h2 id="drawerTitle" style="font-size: 18px; line-height: 1.3;"></h2>
+          <div class="mono" id="drawerId" style="margin-bottom: 4px;"></div>
+          <h2 id="drawerTitle" style="font-size: 18px; line-height: 1.35;"></h2>
         </div>
         <button class="icon-btn" id="closeDrawer" style="font-size: 16px;">✕</button>
       </div>
@@ -833,13 +677,19 @@
         <span>Channel</span><strong id="drawerChannel"></strong>
         <span>Funnel Stage</span><span id="drawerStage"></span>
         <span>Status</span><span id="drawerStatus"></span>
-        <span>Owner</span><span id="drawerOwner"></span>
-        <span>Primary CTA</span><strong id="drawerCta" style="color: var(--teal);"></strong>
+        <span>Author</span><span id="drawerAuthor"></span>
+        <span>Last Updated</span><span id="drawerUpdated" class="mono"></span>
       </div>
 
       <div>
-        <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em;">Editorial Angle &amp; Funnel Handoff</div>
-        <p id="drawerBrief" style="font-size: 13.5px; line-height: 1.6; color: var(--text);"></p>
+        <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em;">Issue Brief &amp; Notes</div>
+        <div id="drawerBrief" class="brief-body"></div>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 12px;">
+        <a id="drawerGithubLink" class="btn-primary" href="#" target="_blank" rel="noopener" style="width: 100%; justify-content: center;">
+          Open &amp; Edit on GitHub ↗
+        </a>
       </div>
     </div>
   </div>
@@ -847,128 +697,61 @@
   <div class="toast" id="toast">Shareable URL copied to clipboard</div>
 
   <script>
-    const CONTENT_ITEMS = [
-      {
-        date: "Oct 06",
-        title: "Q4 Benchmark Report: Fatigue & Movement Trends",
-        channel: "Blog + LinkedIn",
-        stage: "TOFU",
-        status: "Published",
-        owner: "Content Lead",
-        cta: "Download Full PDF Report",
-        brief: "Anchor Q4 asset summarizing anonymized movement and fatigue insights. Distributed via founder LinkedIn threads and gated behind a lightweight email capture for the full dataset."
-      },
-      {
-        date: "Oct 14",
-        title: "5 Hidden Signals of Asymmetry Before Injury Strikes",
-        channel: "LinkedIn Carousel",
-        stage: "TOFU",
-        status: "Published",
-        owner: "Product Marketing",
-        cta: "Read Diagnostic Breakdown",
-        brief: "Visual 8-slide carousel designed for high saves and shares among performance directors and clinical leads. Links directly to the interactive assessment tool."
-      },
-      {
-        date: "Oct 22",
-        title: "Interactive Gait & Load Readiness Self-Audit",
-        channel: "Web Landing Page",
-        stage: "MOFU",
-        status: "In Review",
-        owner: "Growth Ops",
-        cta: "Get Custom Readiness Score",
-        brief: "2-minute interactive scorecard that segments prospects by team size and routes high-fit leads directly to a personalized benchmark summary."
-      },
-      {
-        date: "Oct 29",
-        title: "Field vs. Lab: Why Continuous Telemetry Wins",
-        channel: "Newsletter + Substack",
-        stage: "TOFU",
-        status: "Scheduled",
-        owner: "Founder / CEO",
-        cta: "Subscribe to Field Notes",
-        brief: "Contrarian POV essay comparing periodic lab testing with continuous real-world telemetry, setting up our Q4 product narrative."
-      },
-      {
-        date: "Nov 05",
-        title: "Live Webinar: Turning Telemetry into Daily Decisions",
-        channel: "Zoom + LinkedIn Live",
-        stage: "MOFU",
-        status: "In Progress",
-        owner: "Customer Success",
-        cta: "Reserve Live Seat",
-        brief: "35-minute live walkthrough with a flagship customer showing weekly workflow integration, followed by 15 minutes of live Q&A."
-      },
-      {
-        date: "Nov 12",
-        title: "Case Study: Cutting Lower-Limb Downtime by 34%",
-        channel: "PDF + Sales Deck",
-        stage: "BOFU",
-        status: "In Progress",
-        owner: "Product Marketing",
-        cta: "Book a 30-Day Pilot",
-        brief: "Quantified customer proof point built for late-stage prospects evaluating budget allocation before year-end."
-      },
-      {
-        date: "Nov 19",
-        title: "Baliston vs. Legacy Motion Capture: Buyer's Guide",
-        channel: "Comparison Page",
-        stage: "BOFU",
-        status: "Drafting",
-        owner: "Product Marketing",
-        cta: "Request Custom ROI Model",
-        brief: "Transparent comparison matrix covering setup time, total cost of ownership, and real-world accuracy."
-      },
-      {
-        date: "Nov 26",
-        title: "48-Hour Deployment Checklist for New Teams",
-        channel: "Help Center + Email",
-        stage: "RETENTION",
-        status: "Scheduled",
-        owner: "Customer Success",
-        cta: "Launch Onboarding Kit",
-        brief: "Step-by-step rollout guide sent automatically upon pilot kickoff to compress time-to-first-insight."
-      },
-      {
-        date: "Dec 03",
-        title: "Year-End Budget Guide: Locking In Q1 Pilot Credits",
-        channel: "Outbound + Email",
-        stage: "BOFU",
-        status: "Drafting",
-        owner: "Sales Lead",
-        cta: "Claim Q4 Pilot Terms",
-        brief: "Targeted campaign for warm MOFU leads with remaining Q4 budget looking to start deployment in January."
-      },
-      {
-        date: "Dec 10",
-        title: "Customer Spotlight: Inside a High-Performance Rollout",
-        channel: "Video + LinkedIn",
-        stage: "MOFU",
-        status: "Planned",
-        owner: "Content Lead",
-        cta: "Watch 3-Min Case Video",
-        brief: "Short documentary-style customer interview highlighting ease of adoption across coaches and analysts."
-      },
-      {
-        date: "Dec 16",
-        title: "Q4 Product Release Digest & Q1 Roadmap Preview",
-        channel: "Customer Newsletter",
-        stage: "RETENTION",
-        status: "Planned",
-        owner: "Product Lead",
-        cta: "Join Beta Cohort",
-        brief: "Recap of Q4 platform improvements and early-access signups for Q1 analytics features."
-      },
-      {
-        date: "Dec 22",
-        title: "2026 Performance & Movement Intelligence Predictions",
-        channel: "PR + LinkedIn",
-        stage: "TOFU",
-        status: "Planned",
-        owner: "Founder / CEO",
-        cta: "Read Full Outlook",
-        brief: "End-of-year thought leadership piece designed to capture January planning traffic and media mentions."
-      }
-    ];
+    const REPO_OWNER = "sunniva-baliston";
+    const REPO_NAME = "baliston-marketing-hub";
+    const ISSUES_API = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues?state=all&per_page=100`;
+
+    let contentItems = [];
+    let activeStage = "ALL";
+    let searchQuery = "";
+
+    const tbody = document.getElementById("contentTableBody");
+    const navCount = document.getElementById("navCount");
+
+    function parseIssue(issue) {
+      // Extract bracketed prefix like [CAROUSEL] or [LinkedIn]
+      const prefixMatch = issue.title.match(/^\[([^\]]+)\]\s*(.*)$/);
+      const channel = prefixMatch ? prefixMatch[1].trim() : "General";
+      const cleanTitle = prefixMatch ? prefixMatch[2].trim() : issue.title;
+
+      const labelNames = issue.labels.map(l => l.name.toUpperCase());
+
+      // Detect funnel stage from labels or keywords, default to TOFU
+      let stage = "TOFU";
+      if (labelNames.some(l => l.includes("MOFU"))) stage = "MOFU";
+      else if (labelNames.some(l => l.includes("BOFU"))) stage = "BOFU";
+      else if (labelNames.some(l => l.includes("RETENTION"))) stage = "RETENTION";
+      else if (labelNames.some(l => l.includes("TOFU"))) stage = "TOFU";
+
+      // Detect custom status label or fallback to GitHub open/closed state
+      const customStatusLabel = issue.labels.find(l =>
+        /draft|review|scheduled|published|progress|ready/i.test(l.name)
+      );
+      const status = customStatusLabel
+        ? customStatusLabel.name
+        : (issue.state === "closed" ? "Published" : "Open / Active");
+
+      const updatedDate = new Date(issue.updated_at).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric"
+      });
+
+      return {
+        number: issue.number,
+        title: cleanTitle,
+        rawTitle: issue.title,
+        channel,
+        stage,
+        status,
+        state: issue.state,
+        author: issue.user ? issue.user.login : REPO_OWNER,
+        updated: updatedDate,
+        body: issue.body && issue.body.trim()
+          ? issue.body.trim()
+          : "No detailed description added to this GitHub issue yet.",
+        url: issue.html_url
+      };
+    }
 
     const stageBadgeClass = {
       TOFU: "tag-blue",
@@ -977,47 +760,69 @@
       RETENTION: "tag-amber"
     };
 
-    const statusBadgeClass = {
-      Published: "tag-teal",
-      Scheduled: "tag-blue",
-      "In Review": "tag-amber",
-      "In Progress": "tag-purple",
-      Drafting: "tag-amber",
-      Planned: "tag-red"
-    };
-
-    let activeStage = "ALL";
-    let searchQuery = "";
-
-    const tbody = document.getElementById("contentTableBody");
-    const navCount = document.getElementById("navCount");
+    function getStatusClass(item) {
+      const s = item.status.toLowerCase();
+      if (item.state === "closed" || s.includes("publish")) return "tag-teal";
+      if (s.includes("review") || s.includes("schedule")) return "tag-amber";
+      if (s.includes("progress")) return "tag-purple";
+      return "tag-blue";
+    }
 
     function renderTable() {
-      const filtered = CONTENT_ITEMS.filter(item => {
+      const filtered = contentItems.filter(item => {
         const matchesStage = activeStage === "ALL" || item.stage === activeStage;
         const q = searchQuery.toLowerCase();
         const matchesSearch = !q ||
-          item.title.toLowerCase().includes(q) ||
+          item.rawTitle.toLowerCase().includes(q) ||
           item.channel.toLowerCase().includes(q) ||
-          item.owner.toLowerCase().includes(q) ||
-          item.cta.toLowerCase().includes(q);
+          `#${item.number}`.includes(q);
         return matchesStage && matchesSearch;
       });
 
-      navCount.textContent = filtered.length;
-      tbody.innerHTML = filtered.map((item, idx) => `
-        <tr data-index="${CONTENT_ITEMS.indexOf(item)}">
-          <td class="mono">${item.date}</td>
-          <td style="font-weight: 500;">${item.title}</td>
-          <td style="color: var(--text-secondary);">${item.channel}</td>
-          <td><span class="tag ${stageBadgeClass[item.stage] || 'tag-blue'}">${item.stage}</span></td>
-          <td><span class="tag ${statusBadgeClass[item.status] || 'tag-amber'}">${item.status}</span></td>
-          <td style="color: var(--teal); font-weight: 500;">${item.cta}</td>
-        </tr>
-      `).join("");
+      navCount.textContent = contentItems.length;
 
       if (!filtered.length) {
-        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color: var(--text-secondary); padding: 28px;">No deliverables match your current filter.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color: var(--text-secondary); padding: 28px;">No content issues match your current filter.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => `
+        <tr data-number="${item.number}">
+          <td class="mono">#${item.number}</td>
+          <td style="font-weight: 500;">${item.title}</td>
+          <td><span class="tag tag-teal">${item.channel}</span></td>
+          <td><span class="tag ${stageBadgeClass[item.stage] || 'tag-blue'}">${item.stage}</span></td>
+          <td><span class="tag ${getStatusClass(item)}">${item.status}</span></td>
+          <td class="mono">${item.updated}</td>
+        </tr>
+      `).join("");
+    }
+
+    async function loadIssues() {
+      try {
+        const res = await fetch(ISSUES_API, {
+          headers: { "Accept": "application/vnd.github+json" }
+        });
+        if (!res.ok) throw new Error(`GitHub API ${res.status}`);
+        const data = await res.json();
+
+        // Filter out pull requests (GitHub returns PRs in /issues)
+        const onlyIssues = data.filter(item => !item.pull_request);
+        contentItems = onlyIssues.map(parseIssue);
+
+        document.getElementById("kpiTotal").textContent = contentItems.length;
+        document.getElementById("kpiOpen").textContent = contentItems.filter(i => i.state === "open").length;
+        document.getElementById("kpiClosed").textContent = contentItems.filter(i => i.state === "closed").length;
+
+        renderTable();
+      } catch (err) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align:center; color: var(--red); padding: 28px;">
+              Unable to load issues from GitHub (${err.message}). Make sure the repository is public.
+            </td>
+          </tr>
+        `;
       }
     }
 
@@ -1034,6 +839,12 @@
     document.getElementById("searchInput").addEventListener("input", (e) => {
       searchQuery = e.target.value;
       renderTable();
+    });
+
+    // Manual refresh
+    document.getElementById("refreshBtn").addEventListener("click", () => {
+      loadIssues();
+      showToast("Synced with GitHub Issues");
     });
 
     // Sidebar view switching
@@ -1056,17 +867,20 @@
     // Row click -> open brief drawer
     const drawerBackdrop = document.getElementById("drawerBackdrop");
     tbody.addEventListener("click", (e) => {
-      const row = e.target.closest("tr[data-index]");
+      const row = e.target.closest("tr[data-number]");
       if (!row) return;
-      const item = CONTENT_ITEMS[Number(row.dataset.index)];
-      document.getElementById("drawerDate").textContent = `${item.date} • Q4`;
+      const item = contentItems.find(i => i.number === Number(row.dataset.number));
+      if (!item) return;
+
+      document.getElementById("drawerId").textContent = `ISSUE #${item.number}`;
       document.getElementById("drawerTitle").textContent = item.title;
       document.getElementById("drawerChannel").textContent = item.channel;
       document.getElementById("drawerStage").innerHTML = `<span class="tag ${stageBadgeClass[item.stage]}">${item.stage}</span>`;
-      document.getElementById("drawerStatus").innerHTML = `<span class="tag ${statusBadgeClass[item.status]}">${item.status}</span>`;
-      document.getElementById("drawerOwner").textContent = item.owner;
-      document.getElementById("drawerCta").textContent = item.cta;
-      document.getElementById("drawerBrief").textContent = item.brief;
+      document.getElementById("drawerStatus").innerHTML = `<span class="tag ${getStatusClass(item)}">${item.status}</span>`;
+      document.getElementById("drawerAuthor").textContent = `@${item.author}`;
+      document.getElementById("drawerUpdated").textContent = item.updated;
+      document.getElementById("drawerBrief").textContent = item.body;
+      document.getElementById("drawerGithubLink").href = item.url;
       drawerBackdrop.classList.add("open");
     });
 
@@ -1075,17 +889,21 @@
       if (e.target === drawerBackdrop) drawerBackdrop.classList.remove("open");
     });
 
-    // Copy shareable link
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
     document.getElementById("copyLinkBtn").addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(window.location.href);
-        const toast = document.getElementById("toast");
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2200);
+        showToast("Shareable URL copied to clipboard");
       } catch (_) {}
     });
 
-    renderTable();
+    loadIssues();
   </script>
 </body>
 </html>
